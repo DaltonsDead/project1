@@ -1,0 +1,77 @@
+﻿@page
+@model Project1_ASP.Pages.Assignments.CreateModel
+@{
+}
+
+
+<br />
+<h1>New Assignment</h1>
+
+@if (Model.error.Length > 0)
+{
+    <div class="alert alert-dismissible alert-warning fade show" role="alert">
+        <strong>@Model.error</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+    </div>
+}
+
+<form method="POST">
+    <div class="row mb-3">
+        <labelclass="col-sm-3 col-form-label">Employee:</label>
+            <div class="col-sm-6">
+                <select name="employee">
+                    @foreach (var item in Model.listEmployees)
+                    {
+                        <option value="@item.EmployeeID">@item.EmployeeFirstName @item.EmployeeLastName</option>                        
+                    }
+                </select>
+            </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Owners First Name</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="OwnerFirst" value="" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Owners Last Name</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="OwnerLast" value="" />
+            </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Address</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Address" value="" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Phone</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="Phone" value="" />
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Problem Description:</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="ProblemDesc" value="" />
+        </div>
+    </div>
+
+    @if (Model.success.Length > 0)
+    {
+                <div class="alert alert-dismissible alert-success fade show" role="alert">
+                    <strong>@Model.success</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                </div>
+    }
+
+        <div class="row mb-3">
+            <div class="ofset-sm-3 col-sm-3 d-grid">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <div class="col-sm-3 d-grid">
+                <button class="btn btn-danger" href="/" role="button">Cancel</button>
+            </div>
+        </div>
+</form>

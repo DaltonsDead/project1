@@ -1,0 +1,43 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Assignments";
+}
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+    <a class="btn btn-primary btn-sm" href="/Assignments/Create">Add Assignment</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Employee Name</th>
+                <th>Date Assigned</th>
+                <th>Owner First Name</th>
+                <th>Owner Last Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Problem Description</th>
+                <th>Completed</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.listAssignments)
+            {
+                    <tr>
+                        <td>@item.EmployeeFirstName @item.EmployeeLastName</td>
+                        <td>@item.DateAssigned</td>
+                        <td>@item.OwnerFirst</td>
+                        <td>@item.OwnerLast</td>
+                        <td>@item.Address</td>
+                        <td>@item.Phone</td>
+                        <td>@item.ProblemDesc</td>
+                        <td>@item.Completed</td>
+
+                        <td>
+                            <a class="btn btn-primary btn-sm" href="/Assignments/Edit?id=@item.AssignmentID">Edit</a>
+                            <a class="btn btn-danger btn-sm" href="/Assignments/Delete?id=@item.AssignmentID">Delete</a>
+                        </td>
+                    </tr>
+            }
+        </tbody>
+    </table>
+</div>

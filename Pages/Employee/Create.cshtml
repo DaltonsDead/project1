@@ -1,0 +1,49 @@
+﻿@page
+@model Project1_ASP.Pages.Employee.CreateModel
+@{
+    ViewData["Title"] = "Add Employee";
+}
+
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+
+    @if (Model.error.Length > 0)
+    {
+        <div class="alert alert-dismissible alert-warning fade show" role="alert">
+            <strong>@Model.error</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+        </div>
+    }
+
+    <form method="POST">
+        <div class="row mb-3">
+            <label class="col-sm-3 col-form-label">First Name</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="fName" value="@Model.employeeInfo.EmployeeFirstName" />
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-sm-3 col-form-label">Last Name</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="lName" value="@Model.employeeInfo.EmployeeLastName" />
+            </div>
+        </div>
+
+        @if (Model.success.Length > 0)
+        {
+            <div class="alert alert-dismissible alert-success fade show" role="alert">
+                <strong>@Model.success</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+            </div>
+        }
+
+        <div class="row mb-3">
+            <div class="ofset-sm-3 col-sm-3 d-grid">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <div class="col-sm-3 d-grid">
+                <button class="btn btn-danger" href="/" role="button">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>

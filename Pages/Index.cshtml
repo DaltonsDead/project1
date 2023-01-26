@@ -1,0 +1,34 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+    <a class="btn btn-primary btn-sm" href="/Employee/Create">Add Employee</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>EmployeeID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model.listEmployees)
+            {
+                <tr>
+                    <td>@item.EmployeeID</td>
+                    <td>@item.EmployeeFirstName</td>
+                    <td>@item.EmployeeLastName</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="/Employee/Edit?id=@item.EmployeeID">Edit</a>
+                       <!-- <a class="btn btn btn-sm" href="/Employee/Delete?id=@item.EmployeeID">Delete</a> -->
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
