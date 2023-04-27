@@ -19,7 +19,7 @@ namespace Project1_ASP.Pages
         {
             try
             {
-                String connectionString = "Data Source=localhost;Initial Catalog=Project1;Integrated Security=True";
+                String connectionString = "Data Source=localhost;Initial Catalog=mydb;Integrated Security=True";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
